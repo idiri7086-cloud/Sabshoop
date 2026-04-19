@@ -12,120 +12,132 @@ body{
     margin:0;
     font-family:'Cairo', sans-serif;
     background:#f9f8f5;
-    color:#333;
     text-align:center;
 }
 
 header{
-    padding:100px 20px;
+    padding:80px 20px;
     background:linear-gradient(to bottom,#111827,#1f2937);
-}
-
-.logo-wrap{
-    margin-bottom:20px;
+    color:white;
 }
 
 .site-logo{
-    width:140px;
-    max-width:90%;
-    height:auto;
-    object-fit:contain;
-    border:none;
-    border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.18);
-}
-
-header h1{
-    font-size:56px;
-    margin-bottom:10px;
-    letter-spacing:4px;
-    font-weight:800;
-    color:#ffffff;
-    text-transform:uppercase;
-}
-
-.tagline{
-    font-size:20px;
-    color:#8a7b6d;
-    margin-top:8px;
-    font-weight:500;
-}
-
-header .line{
-    width:120px;
-    height:4px;
-    background:#111827;
-    margin:15px auto;
-    border-radius:10px;
-}
-
-.features{
-    margin-top:22px;
-    font-size:24px;
-    font-weight:600;
-    letter-spacing:1px;
-}
-
-.features span{
-    display:inline-block;
-    margin:0 6px;
-}
-
-.dot{
-    color:#9ca3af;
-    font-weight:300;
+    width:160px;
+    border-radius:50%;
 }
 
 .products{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
     gap:25px;
-    padding:40px 20px;
+    padding:40px;
 }
 
 .product{
     background:white;
-    width:230px;
-    padding:18px;
-    border-radius:20px;
-    border:1px solid #ece8e1;
-    box-shadow:0 12px 28px rgba(0,0,0,0.06);
+    padding:15px;
+    border-radius:15px;
 }
 
 .product img{
     width:100%;
-    height:280px;
+    height:250px;
     object-fit:cover;
-    border-radius:14px;
 }
 
-.product h3{
-    font-size:20px;
-    font-weight:700;
-    margin:12px 0 5px;
-}
-
-.product p{
-    color:#777;
-}
-
-.product a{
-    display:inline-block;
-    margin-top:12px;
-    padding:10px 25px;
+.order-btn{
+    margin-top:10px;
+    padding:12px;
     background:#111827;
     color:white;
-    text-decoration:none;
-    border-radius:25px;
-    font-size:15px;
+    border:none;
+    border-radius:20px;
+    width:100%;
 }
 
-footer{
-    padding:35px;
-    color:#d1d5db;
-    font-size:14px;
-    background:#111827;
+#orderModal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    width:90%;
+    max-width:400px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-family:'Cairo', sans-serif;
+}
+
+.confirm-btn{
+    margin-top:15px;
+    padding:12px;
+    background:#10b981;
+    color:white;
+    border:none;
+    border-radius:20px;
+    width:100%;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.messenger-btn{
+    margin-top:10px;
+    padding:12px;
+    background:#0084FF;
+    color:white;
+    border:none;
+    border-radius:20px;
+    width:100%;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.cancel-btn{
+    margin-top:10px;
+    padding:12px;
+    background:#6b7280;
+    color:white;
+    border:none;
+    border-radius:20px;
+    width:100%;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* الإطار الجديد أسفل الصفحة */
+.custom-frame {
+    margin: 50px 20px 40px;
+    padding: 25px 15px;
+    background: white;
+    border: 3px solid #10b981;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.custom-frame p {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    line-height: 1.4;
 }
 </style>
 </head>
@@ -133,80 +145,128 @@ footer{
 <body>
 
 <header>
-    <div class="logo-wrap">
-        <img src="logo.jpg" alt="SABSHOOP Logo" class="site-logo">
-    </div>
-
-    <h1>SABSHOOP</h1>
-    <p class="tagline">تصاميمك… مطبوعة بأسلوبك</p>
-    <div class="line"></div>
-
-    <div class="features">
-        <span>طباعة احترافية عالية الجودة</span>
-        <span class="dot">•</span>
-        <span>تصاميم مخصصة حسب الطلب</span>
-        <span class="dot">•</span>
-        <span>توصيل سريع داخل الوطن</span>
-    </div>
+<img src="logo.jpg" class="site-logo">
+<h1>SABSHOOP</h1>
+<p style="color:#fbbf24;">تصاميمك… مطبوعة بأسلوبك</p>
 </header>
 
 <section class="products">
 
-    <div class="product">
-        <img src="image-3.jpg" alt="Trust God's Plan Premium">
-        <h3>Trust God's Plan Premium</h3>
-        <p>2000 دج</p>
-        <a href="https://m.me/100069958035941" target="_blank">اطلب الآن</a>
-    </div>
+<div class="product">
+<img src="image-3.jpg">
+<h3>Trust God's Plan Premium</h3>
+<p>2000 دج</p>
+<button class="order-btn" onclick="openForm('Trust God\'s Plan Premium')">اطلب الآن</button>
+</div>
 
-    <div class="product">
-        <img src="image-6.jpg" alt="It's Never Luck">
-        <h3>It's Never Luck</h3>
-        <p>2000 دج</p>
-        <a href="https://m.me/100069958035941" target="_blank">اطلب الآن</a>
-    </div>
+<div class="product">
+<img src="image-6.jpg">
+<h3>It's Never Luck</h3>
+<p>2000 دج</p>
+<button class="order-btn" onclick="openForm('It\'s Never Luck')">اطلب الآن</button>
+</div>
 
-    <div class="product">
-        <img src="image-5.jpg" alt="Focus Power">
-        <h3>Focus Power</h3>
-        <p>2000 دج</p>
-        <a href="https://m.me/100069958035941" target="_blank">اطلب الآن</a>
-    </div>
+<div class="product">
+<img src="image-5.jpg">
+<h3>Focus Power</h3>
+<p>2000 دج</p>
+<button class="order-btn" onclick="openForm('Focus Power')">اطلب الآن</button>
+</div>
 
-    <div class="product">
-        <img src="image-4.jpg" alt="Zootopia">
-        <h3>Zootopia Design</h3>
-        <p>2000 دج</p>
-        <a href="https://m.me/100069958035941" target="_blank">اطلب الآن</a>
-    </div>
+<div class="product">
+<img src="image-4.jpg">
+<h3>Zootopia Design</h3>
+<p>2000 دج</p>
+<button class="order-btn" onclick="openForm('Zootopia Design')">اطلب الآن</button>
+</div>
 
-    <div class="product">
-        <img src="image-1.jpg" alt="Trust God's Plan">
-        <h3>Trust God's Plan</h3>
-        <p>2000 دج</p>
-        <a href="https://m.me/100069958035941" target="_blank">اطلب الآن</a>
-    </div>
+<div class="product">
+<img src="image-1.jpg">
+<h3>Trust God's Plan</h3>
+<p>2000 دج</p>
+<button class="order-btn" onclick="openForm('Trust God\'s Plan')">اطلب الآن</button>
+</div>
 
-    <div class="product">
-        <img src="image-2.jpg" alt="Itachi">
-        <h3>Itachi Design</h3>
-        <p>2000 دج</p>
-        <a href="https://m.me/100069958035941" target="_blank">اطلب الآن</a>
-    </div>
+<div class="product">
+<img src="image-2.jpg">
+<h3>Itachi Design</h3>
+<p>2000 دج</p>
+<button class="order-btn" onclick="openForm('Itachi Design')">اطلب الآن</button>
+</div>
 
 </section>
 
-<div style="position:fixed;bottom:20px;left:20px;z-index:999;">
-    <a href="https://m.me/100069958035941" target="_blank"
-       style="display:flex;align-items:center;gap:10px;background:#0084FF;color:white;padding:14px 22px;border-radius:50px;text-decoration:none;font-weight:700;">
-        💬 تواصل عبر Messenger
-    </a>
+<!-- الإطار الجديد أسفل المنتجات -->
+<div class="custom-frame">
+    <p>هل تفكر في ملصق خاص بك ؟! 🤔<br>
+    نحن نوفر لك ايضا 🎨❇️</p>
 </div>
 
-<footer>
-    SABSHOOP — متجر متخصص في طباعة وتصميم التيشيرتات حسب الطلب<br>
-    جميع الحقوق محفوظة © 2026
-</footer>
+<!-- الفورم -->
+<div id="orderModal">
+<div class="modal-content">
+
+<h3>إتمام الطلب</h3>
+
+<input id="name" placeholder="الاسم">
+<input id="phone" placeholder="رقم الهاتف">
+<textarea id="address" placeholder="العنوان"></textarea>
+
+<select id="size">
+<option value="">اختر المقاس</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
+</select>
+
+<button class="confirm-btn" onclick="sendOrder()">تأكيد الطلب</button>
+<button class="messenger-btn" onclick="openMessenger()">مراسلة عبر Messenger</button>
+<button class="cancel-btn" onclick="closeForm()">إلغاء</button>
+
+</div>
+</div>
+
+<script>
+let selectedProduct="";
+
+function openForm(name){
+    selectedProduct=name;
+    document.getElementById("orderModal").style.display="flex";
+}
+
+function closeForm(){
+    document.getElementById("orderModal").style.display="none";
+}
+
+function sendOrder(){
+    let name=document.getElementById("name").value;
+    let phone=document.getElementById("phone").value;
+    let address=document.getElementById("address").value;
+    let size=document.getElementById("size").value;
+
+    if(!name || !phone || !address || !size){
+        alert("املأ كل المعلومات");
+        return;
+    }
+
+    let message=`طلب جديد
+
+المنتج: ${selectedProduct}
+الاسم: ${name}
+الهاتف: ${phone}
+العنوان: ${address}
+المقاس: ${size}`;
+
+    let encodedMessage=encodeURIComponent(message);
+    window.location.href=`whatsapp://send?phone=213542806878&text=${encodedMessage}`;
+}
+
+function openMessenger(){
+    window.open("https://www.facebook.com/profile.php?id=100069958035941", "_blank");
+}
+</script>
 
 </body>
-</html></html>
+</html>
