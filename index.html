@@ -35,12 +35,14 @@
             background: white;
             padding: 15px;
             border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .product img {
             width: 100%;
             height: 250px;
             object-fit: cover;
+            border-radius: 10px;
         }
 
         .order-btn {
@@ -52,6 +54,7 @@
             border-radius: 20px;
             width: 100%;
             cursor: pointer;
+            font-weight: 600;
         }
 
         #orderModal {
@@ -69,7 +72,7 @@
 
         .modal-content {
             background: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
             width: 90%;
             max-width: 400px;
@@ -77,8 +80,8 @@
 
         input, select, textarea {
             width: 100%;
-            padding: 10px;
-            margin: 6px 0;
+            padding: 12px;
+            margin: 8px 0;
             border: 1px solid #ddd;
             border-radius: 8px;
             font-family: 'Cairo', sans-serif;
@@ -87,20 +90,20 @@
 
         .confirm-btn {
             margin-top: 15px;
-            padding: 12px;
+            padding: 13px;
             background: #10b981;
             color: white;
             border: none;
             border-radius: 20px;
             width: 100%;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
         }
 
         .messenger-btn {
             margin-top: 10px;
-            padding: 12px;
+            padding: 13px;
             background: #0084FF;
             color: white;
             border: none;
@@ -113,7 +116,7 @@
 
         .cancel-btn {
             margin-top: 10px;
-            padding: 12px;
+            padding: 13px;
             background: #6b7280;
             color: white;
             border: none;
@@ -131,20 +134,12 @@
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-
-        .custom-frame p {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1f2937;
-            margin: 0;
-            line-height: 1.4;
-        }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.jpg" class="site-logo">
+    <img src="logo.jpg" class="site-logo" alt="SABSHOOP">
     <h1>SABSHOOP</h1>
     <p style="color:#fbbf24;">تصاميمك… مطبوعة بأسلوبك</p>
 </header>
@@ -152,66 +147,66 @@
 <section class="products">
 
     <div class="product">
-        <img src="custom.jpg">
+        <img src="custom.jpg" alt="تصميم خاص">
         <p style="color:#10b981; font-weight:700;">ملصق مخصص</p>
         <h3>تصميم خاص</h3>
-        <p>1900 دج</p>
+        <p><strong>2000 دج</strong></p>
         <button class="order-btn" onclick="openForm('تصميم خاص')">اطلب الآن</button>
     </div>
 
     <div class="product">
-        <img src="image-3.jpg">
+        <img src="image-3.jpg" alt="Trust God's Plan Premium">
         <h3>Trust God's Plan Premium</h3>
-        <p>1900 دج</p>
+        <p><strong>2000 دج</strong></p>
         <button class="order-btn" onclick="openForm('Trust God\'s Plan Premium')">اطلب الآن</button>
     </div>
 
     <div class="product">
-        <img src="image-6.jpg">
+        <img src="image-6.jpg" alt="It's Never Luck">
         <h3>It's Never Luck</h3>
-        <p>1900 دج</p>
+        <p><strong>2000 دج</strong></p>
         <button class="order-btn" onclick="openForm('It\'s Never Luck')">اطلب الآن</button>
     </div>
 
     <div class="product">
-        <img src="image-5.jpg">
+        <img src="image-5.jpg" alt="Focus Power">
         <h3>Focus Power</h3>
-        <p>1900 دج</p>
+        <p><strong>2000 دج</strong></p>
         <button class="order-btn" onclick="openForm('Focus Power')">اطلب الآن</button>
     </div>
 
     <div class="product">
-        <img src="image-4.jpg">
+        <img src="image-4.jpg" alt="Zootopia Design">
         <h3>Zootopia Design</h3>
-        <p>1900 دج</p>
+        <p><strong>2000 دج</strong></p>
         <button class="order-btn" onclick="openForm('Zootopia Design')">اطلب الآن</button>
     </div>
 
     <div class="product">
-        <img src="image-1.jpg">
+        <img src="image-1.jpg" alt="Trust God's Plan">
         <h3>Trust God's Plan</h3>
-        <p>1900 دج</p>
+        <p><strong>2000 دج</strong></p>
         <button class="order-btn" onclick="openForm('Trust God\'s Plan')">اطلب الآن</button>
     </div>
 
     <div class="product">
-        <img src="image-2.jpg">
+        <img src="image-2.jpg" alt="Itachi Design">
         <h3>Itachi Design</h3>
-        <p>1900 دج</p>
+        <p><strong>2000 دج</strong></p>
         <button class="order-btn" onclick="openForm('Itachi Design')">اطلب الآن</button>
     </div>
 
     <div class="product">
-        <img src="image-7.png">
+        <img src="image-7.png" alt="T-shirt PNL">
         <h3>T-shirt PNL</h3>
-        <p>1900 دج</p>
+        <p><strong>2000 دج</strong></p>
         <button class="order-btn" onclick="openForm('T-shirt PNL')">اطلب الآن</button>
     </div>
 
     <div class="product">
-        <img src="image-8.png">
+        <img src="image-8.png" alt="T-shirt RED MOON">
         <h3>T-shirt RED MOON</h3>
-        <p>1900 دج</p>
+        <p><strong>2000 دج</strong></p>
         <button class="order-btn" onclick="openForm('T-shirt RED MOON')">اطلب الآن</button>
     </div>
 
@@ -225,10 +220,10 @@
 <div id="orderModal">
     <div class="modal-content">
         <h3>إتمام الطلب</h3>
-        <input id="name" placeholder="الاسم">
-        <input id="phone" placeholder="رقم الهاتف">
-        <textarea id="address" placeholder="العنوان"></textarea>
-        <select id="size">
+        <input id="name" placeholder="الاسم الكامل" required>
+        <input id="phone" placeholder="رقم الهاتف" required>
+        <textarea id="address" placeholder="العنوان بالتفصيل" rows="3" required></textarea>
+        <select id="size" required>
             <option value="">اختر المقاس</option>
             <option>S</option>
             <option>M</option>
@@ -255,13 +250,13 @@
     }
 
     function sendOrder() {
-        let name = document.getElementById("name").value;
-        let phone = document.getElementById("phone").value;
-        let address = document.getElementById("address").value;
+        let name = document.getElementById("name").value.trim();
+        let phone = document.getElementById("phone").value.trim();
+        let address = document.getElementById("address").value.trim();
         let size = document.getElementById("size").value;
 
         if (!name || !phone || !address || !size) {
-            alert("املأ كل المعلومات");
+            alert("يرجى ملء جميع الحقول");
             return;
         }
 
