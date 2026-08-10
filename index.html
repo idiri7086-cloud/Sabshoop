@@ -1,569 +1,669 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SABSHOOP - Wear Your Style</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>SABSHOOP - Wear Your Style</title>
 
-    <style>
-        :root {
-            --primary-black: #0a0a0a;
-            --secondary-black: #1a1a1a;
-            --accent-purple: #a855f7;
-            --accent-purple-dark: #9333ea;
-            --text-white: #ffffff;
-            --text-gray: #a1a1aa;
-            --bg-light: #f4f4f5;
-            --card-shadow: 0 10px 25px -5px rgba(0,0,0,0.1),
-                           0 8px 10px -6px rgba(0,0,0,0.1);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            margin: 0;
-            font-family: 'Cairo', sans-serif;
-            background: var(--bg-light);
-            color: var(--primary-black);
-            line-height: 1.6;
-        }
+<style>
+:root {
+    --black:#0a0a0a;
+    --purple:#a855f7;
+    --purple-dark:#9333ea;
+    --light:#f4f4f5;
+}
 
-        header {
-            padding: 60px 20px;
-            background: var(--primary-black);
-            color: white;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 4px solid var(--accent-purple);
-            text-align: center;
-        }
+* {
+    box-sizing:border-box;
+}
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(
-                circle,
-                rgba(168,85,247,0.1) 0%,
-                transparent 70%
-            );
-            z-index: 0;
-        }
+body {
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    background:var(--light);
+    color:var(--black);
+}
 
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
+header {
+    padding:60px 20px;
+    background:#0a0a0a;
+    color:white;
+    text-align:center;
+    border-bottom:4px solid var(--purple);
+    position:relative;
+    overflow:hidden;
+}
 
-        .site-logo {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-purple);
-            padding: 5px;
-            background: white;
-            box-shadow: 0 0 20px rgba(168,85,247,0.3);
-            transition: transform 0.3s ease;
-            object-fit: contain;
-        }
+header::before {
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    top:-50%;
+    left:-50%;
+    background:radial-gradient(circle,rgba(168,85,247,.12),transparent 70%);
+}
 
-        .site-logo:hover {
-            transform: scale(1.05);
-        }
+.header-content {
+    position:relative;
+    z-index:1;
+}
 
-        h1 {
-            margin: 20px 0 10px;
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
+.site-logo {
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    border:3px solid var(--purple);
+    padding:5px;
+    background:white;
+    object-fit:contain;
+    box-shadow:0 0 20px rgba(168,85,247,.3);
+}
 
-        header p {
-            color: var(--accent-purple);
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin: 0;
-        }
+h1 {
+    margin:20px 0 10px;
+    font-size:2.5rem;
+    font-weight:800;
+}
 
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+header p {
+    margin:0;
+    color:var(--purple);
+    font-size:1.2rem;
+    font-weight:600;
+}
 
-        .product {
-            background: white;
-            padding: 0;
-            border-radius: 20px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
+.products {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    padding:60px 20px;
+    max-width:1200px;
+    margin:auto;
+}
 
-        .product:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1),
-                        0 10px 10px -5px rgba(0,0,0,0.04);
-        }
+.product {
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+    transition:.3s;
+}
 
-        .product-img-container {
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-            background: #f5f5f5;
-        }
+.product:hover {
+    transform:translateY(-7px);
+}
 
-        .product img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+.product-img-container {
+    width:100%;
+    height:300px;
+    overflow:hidden;
+    background:#f5f5f5;
+}
 
-        .product:hover img {
-            transform: scale(1.05);
-        }
+.product img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
 
-        .product-info {
-            padding: 20px;
-            text-align: right;
-        }
+.product:hover img {
+    transform:scale(1.05);
+}
 
-        .product-category {
-            color: var(--accent-purple);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            display: block;
-        }
+.product-info {
+    padding:20px;
+    text-align:right;
+}
 
-        .product h3 {
-            margin: 5px 0;
-            font-size: 1.25rem;
-            color: var(--primary-black);
-        }
+.product-category {
+    color:var(--purple);
+    font-size:.85rem;
+    font-weight:700;
+}
 
-        .price {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary-black);
-            margin: 10px 0;
-            display: block;
-        }
+.product h3 {
+    margin:5px 0;
+    font-size:1.2rem;
+}
 
-        .order-btn {
-            margin-top: 15px;
-            padding: 14px;
-            background: var(--primary-black);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            width: 100%;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-family: 'Cairo', sans-serif;
-        }
+.price {
+    display:block;
+    font-size:1.4rem;
+    font-weight:800;
+    margin:10px 0;
+}
 
-        .order-btn:hover {
-            background: var(--accent-purple);
-            box-shadow: 0 4px 15px rgba(168,85,247,0.4);
-        }
+.order-btn {
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:12px;
+    background:#0a0a0a;
+    color:white;
+    cursor:pointer;
+    font-family:'Cairo',sans-serif;
+    font-size:1rem;
+    font-weight:700;
+}
 
-        .custom-frame {
-            margin: 40px auto 80px;
-            padding: 40px 20px;
-            background: var(--primary-black);
-            color: white;
-            border-radius: 24px;
-            max-width: 800px;
-            text-align: center;
-            border-right: 8px solid var(--accent-purple);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+.order-btn:hover {
+    background:var(--purple);
+}
 
-        .custom-frame p {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 0;
-        }
+.custom-frame {
+    margin:40px 15px 80px;
+    padding:40px 20px;
+    background:#0a0a0a;
+    color:white;
+    border-radius:24px;
+    text-align:center;
+    border-right:8px solid var(--purple);
+}
 
-        #orderModal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+.custom-frame p {
+    font-size:1.4rem;
+    font-weight:600;
+}
 
-        .modal-content {
-            background: white;
-            padding: 35px;
-            border-radius: 24px;
-            width: 100%;
-            max-width: 450px;
-            position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-            box-sizing: border-box;
-        }
+#orderModal {
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    z-index:1000;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
 
-        .modal-content h3 {
-            margin-top: 0;
-            font-size: 1.8rem;
-            color: var(--primary-black);
-            text-align: center;
-            margin-bottom: 25px;
-        }
+.modal-content {
+    background:white;
+    padding:30px;
+    border-radius:24px;
+    width:100%;
+    max-width:450px;
+}
 
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 14px;
-            margin: 10px 0;
-            border: 2px solid #e4e4e7;
-            border-radius: 12px;
-            font-family: 'Cairo', sans-serif;
-            box-sizing: border-box;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
+.modal-content h3 {
+    text-align:center;
+    margin-top:0;
+    font-size:1.7rem;
+}
 
-        input:focus,
-        select:focus,
-        textarea:focus {
-            outline: none;
-            border-color: var(--accent-purple);
-        }
+input,
+select,
+textarea {
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border:2px solid #e4e4e7;
+    border-radius:12px;
+    font-family:'Cairo',sans-serif;
+    font-size:1rem;
+}
 
-        .confirm-btn {
-            margin-top: 20px;
-            padding: 15px;
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            width: 100%;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            font-family: 'Cairo', sans-serif;
-        }
+input:focus,
+select:focus,
+textarea:focus {
+    outline:none;
+    border-color:var(--purple);
+}
 
-        .confirm-btn:hover {
-            background: var(--accent-purple-dark);
-        }
+.confirm-btn,
+.messenger-btn,
+.cancel-btn {
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:12px;
+    margin-top:10px;
+    font-family:'Cairo',sans-serif;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+}
 
-        .messenger-btn {
-            margin-top: 12px;
-            padding: 15px;
-            background: #0084FF;
-            color: white;
-            border: none;
-            border-radius: 12px;
-            width: 100%;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: 'Cairo', sans-serif;
-        }
+.confirm-btn {
+    background:var(--purple);
+    color:white;
+}
 
-        .cancel-btn {
-            margin-top: 12px;
-            padding: 12px;
-            background: transparent;
-            color: #6b7280;
-            border: 2px solid #e4e4e7;
-            border-radius: 12px;
-            width: 100%;
-            font-size: 1rem;
-            cursor: pointer;
-            font-weight: 600;
-            font-family: 'Cairo', sans-serif;
-        }
+.confirm-btn:hover {
+    background:var(--purple-dark);
+}
 
-        .cancel-btn:hover {
-            background: #f4f4f5;
-            color: var(--primary-black);
-        }
+.messenger-btn {
+    background:#0084ff;
+    color:white;
+}
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
+.cancel-btn {
+    background:white;
+    color:#555;
+    border:2px solid #ddd;
+}
 
-            .products {
-                padding: 30px 15px;
-                grid-template-columns: 1fr;
-            }
+@media(max-width:600px) {
+    h1 {
+        font-size:2rem;
+    }
 
-            .custom-frame {
-                margin: 20px 15px 60px;
-            }
-
-            .product-img-container {
-                height: 350px;
-            }
-        }
-    </style>
+    .products {
+        grid-template-columns:1fr;
+        padding:30px 15px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="header-content">
+<div class="header-content">
 
-        <!-- الشعار -->
-        <img src="logo.jpg" class="site-logo" alt="SABSHOOP">
+<img src="logo.jpg" class="site-logo" alt="SABSHOOP">
 
-        <h1>SABSHOOP</h1>
-        <p>تصاميمك… مطبوعة بأسلوبك</p>
+<h1>SABSHOOP</h1>
 
-    </div>
+<p>تصاميمك… مطبوعة بأسلوبك</p>
+
+</div>
 </header>
 
 
 <section class="products">
 
-    <!-- 1 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="custom.jpg" alt="تصميم خاص">
-        </div>
-        <div class="product-info">
-            <span class="product-category">ملصق مخصص</span>
-            <h3>تصميم خاص</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn" onclick="openForm('تصميم خاص')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+
+<!-- 1 -->
+<div class="product">
+<div class="product-img-container">
+<img src="custom.jpg" alt="تصميم خاص">
+</div>
+<div class="product-info">
+<span class="product-category">ملصق مخصص</span>
+<h3>تصميم خاص</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('تصميم خاص')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 2 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="image-3.jpg" alt="Trust God's Plan Premium">
-        </div>
-        <div class="product-info">
-            <span class="product-category">Premium Collection</span>
-            <h3>Trust God's Plan Premium</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('Trust God\'s Plan Premium')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+<!-- 2 -->
+<div class="product">
+<div class="product-img-container">
+<img src="image-3.jpg" alt="Trust God's Plan Premium">
+</div>
+<div class="product-info">
+<span class="product-category">Premium Collection</span>
+<h3>Trust God's Plan Premium</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('Trust Gods Plan Premium')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 3 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="image-6.jpg" alt="It's Never Luck">
-        </div>
-        <div class="product-info">
-            <span class="product-category">Inspiration</span>
-            <h3>It's Never Luck</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('It\'s Never Luck')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+<!-- 3 -->
+<div class="product">
+<div class="product-img-container">
+<img src="image-6.jpg" alt="It's Never Luck">
+</div>
+<div class="product-info">
+<span class="product-category">Inspiration</span>
+<h3>It's Never Luck</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('Its Never Luck')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 4 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="image-5.jpg" alt="Focus Power">
-        </div>
-        <div class="product-info">
-            <span class="product-category">Motivation</span>
-            <h3>Focus Power</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('Focus Power')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+<!-- 4 -->
+<div class="product">
+<div class="product-img-container">
+<img src="image-5.jpg" alt="Focus Power">
+</div>
+<div class="product-info">
+<span class="product-category">Motivation</span>
+<h3>Focus Power</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('Focus Power')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 5 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="image-4.jpg" alt="Zootopia Design">
-        </div>
-        <div class="product-info">
-            <span class="product-category">Animation</span>
-            <h3>Zootopia Design</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('Zootopia Design')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+<!-- 5 -->
+<div class="product">
+<div class="product-img-container">
+<img src="image-4.jpg" alt="Zootopia Design">
+</div>
+<div class="product-info">
+<span class="product-category">Animation</span>
+<h3>Zootopia Design</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('Zootopia Design')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 6 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="image-1.jpg" alt="Trust God's Plan">
-        </div>
-        <div class="product-info">
-            <span class="product-category">Classic</span>
-            <h3>Trust God's Plan</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('Trust God\'s Plan')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+<!-- 6 -->
+<div class="product">
+<div class="product-img-container">
+<img src="image-1.jpg" alt="Trust God's Plan">
+</div>
+<div class="product-info">
+<span class="product-category">Classic</span>
+<h3>Trust God's Plan</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('Trust Gods Plan')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 7 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="image-2.jpg" alt="Itachi Design">
-        </div>
-        <div class="product-info">
-            <span class="product-category">Anime</span>
-            <h3>Itachi Design</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('Itachi Design')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+<!-- 7 -->
+<div class="product">
+<div class="product-img-container">
+<img src="image-2.jpg" alt="Itachi Design">
+</div>
+<div class="product-info">
+<span class="product-category">Anime</span>
+<h3>Itachi Design</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('Itachi Design')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 8 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="image-7.png" alt="T-shirt PNL">
-        </div>
-        <div class="product-info">
-            <span class="product-category">Apparel</span>
-            <h3>T-shirt PNL</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('T-shirt PNL')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+<!-- 8 -->
+<div class="product">
+<div class="product-img-container">
+<img src="image-7.png" alt="T-shirt PNL">
+</div>
+<div class="product-info">
+<span class="product-category">Apparel</span>
+<h3>T-shirt PNL</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('T-shirt PNL')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 9 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="image-8.png" alt="T-shirt RED MOON">
-        </div>
-        <div class="product-info">
-            <span class="product-category">Apparel</span>
-            <h3>T-shirt RED MOON</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('T-shirt RED MOON')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+<!-- 9 -->
+<div class="product">
+<div class="product-img-container">
+<img src="image-8.png" alt="T-shirt RED MOON">
+</div>
+<div class="product-info">
+<span class="product-category">Apparel</span>
+<h3>T-shirt RED MOON</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('T-shirt RED MOON')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 10 - الصورة الجديدة 9 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="9.png" alt="T-shirt 9">
-        </div>
-        <div class="product-info">
-            <span class="product-category">New Collection</span>
-            <h3>T-shirt 9</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('T-shirt 9')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+<!-- 10 -->
+<div class="product">
+<div class="product-img-container">
+<img src="9.png" alt="T-shirt 9">
+</div>
+<div class="product-info">
+<span class="product-category">New Collection</span>
+<h3>T-shirt 9</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('T-shirt 9')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 11 - الصورة ذات الاسم الطويل -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="d03f3280-9352-11f1-b762-39f85613c2a6.png"
-                 alt="T-shirt New">
-        </div>
-        <div class="product-info">
-            <span class="product-category">New Collection</span>
-            <h3>T-shirt New</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('T-shirt New')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+<!-- 11 -->
+<div class="product">
+<div class="product-img-container">
+<img src="d03f3280-9352-11f1-b762-39f85613c2a6.png" alt="T-shirt New">
+</div>
+<div class="product-info">
+<span class="product-category">New Collection</span>
+<h3>T-shirt New</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('T-shirt New')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 12 - الصورة 14 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="14.png" alt="T-shirt 14">
-        </div>
-        <div class="product-info">
-            <span class="product-category">New Collection</span>
-            <h3>T-shirt 14</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('T-shirt 14')">
-                اطلب الآن
-            </button>
-        </div>
-    </div>
+<!-- 12 -->
+<div class="product">
+<div class="product-img-container">
+<img src="14.png" alt="T-shirt 14">
+</div>
+<div class="product-info">
+<span class="product-category">New Collection</span>
+<h3>T-shirt 14</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('T-shirt 14')">
+اطلب الآن
+</button>
+</div>
+</div>
 
 
-    <!-- 13 - الصورة 12 -->
-    <div class="product">
-        <div class="product-img-container">
-            <img src="12.png" alt="T-shirt 12">
-        </div>
-        <div class="product-info">
-            <span class="product-category">New Collection</span>
-            <h3>T-shirt 12</h3>
-            <span class="price">2000 دج</span>
-            <button class="order-btn"
-                onclick="openForm('T-shirt 12')">
-                اطلب الآن
-            </button>
-        </div>
+<!-- 13 -->
+<div class="product">
+<div class="product-img-container">
+<img src="12.png" alt="T-shirt 12">
+</div>
+<div class="product-info">
+<span class="product-category">New Collection</span>
+<h3>T-shirt 12</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('T-shirt 12')">
+اطلب الآن
+</button>
+</div>
+</div>
+
+
+<!-- 14 -->
+<div class="product">
+<div class="product-img-container">
+<img src="13.png" alt="T-shirt 13">
+</div>
+<div class="product-info">
+<span class="product-category">New Collection</span>
+<h3>T-shirt 13</h3>
+<span class="price">2000 دج</span>
+<button class="order-btn" onclick="openForm('T-shirt 13')">
+اطلب الآن
+</button>
+</div>
+</div>
+
+
+</section>
+
+
+<div class="custom-frame">
+<p>
+هل تفكر في ملصق خاص بك ؟! 🤔
+<br>
+<span style="color:#a855f7">
+نحن نوفر لك ذلك أيضاً 🎨❇️
+</span>
+</p>
+</div>
+
+
+<!-- نافذة الطلب -->
+
+<div id="orderModal">
+
+<div class="modal-content">
+
+<h3>إتمام الطلب</h3>
+
+<input
+id="name"
+type="text"
+placeholder="الاسم الكامل"
+>
+
+<input
+id="phone"
+type="tel"
+placeholder="رقم الهاتف"
+>
+
+<textarea
+id="address"
+placeholder="العنوان بالتفصيل"
+rows="3"
+></textarea>
+
+<select id="size">
+
+<option value="">اختر المقاس</option>
+<option value="S">S</option>
+<option value="M">M</option>
+<option value="L">L</option>
+<option value="XL">XL</option>
+<option value="XXL">XXL</option>
+
+</select>
+
+<button class="confirm-btn" onclick="sendOrder()">
+تأكيد الطلب عبر واتساب
+</button>
+
+<button class="messenger-btn" onclick="openMessenger()">
+مراسلة عبر Messenger
+</button>
+
+<button class="cancel-btn" onclick="closeForm()">
+إلغاء
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+let selectedProduct = "";
+
+
+function openForm(productName) {
+
+    selectedProduct = productName;
+
+    const modal = document.getElementById("orderModal");
+
+    modal.style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeForm() {
+
+    const modal = document.getElementById("orderModal");
+
+    modal.style.display = "none";
+
+    document.body.style.overflow = "auto";
+}
+
+
+window.addEventListener("click", function(event) {
+
+    const modal = document.getElementById("orderModal");
+
+    if (event.target === modal) {
+
+        closeForm();
+
+    }
+
+});
+
+
+function sendOrder() {
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const address =
+        document.getElementById("address").value.trim();
+
+    const size =
+        document.getElementById("size").value;
+
+
+    if (!name || !phone || !address || !size) {
+
+        alert("يرجى ملء جميع الحقول");
+
+        return;
+    }
+
+
+    const message =
+        "طلب جديد من SABSHOOP\n\n" +
+        "المنتج: " + selectedProduct + "\n" +
+        "الاسم: " + name + "\n" +
+        "الهاتف: " + phone + "\n" +
+        "العنوان: " + address + "\n" +
+        "المقاس: " + size;
+
+
+    const encodedMessage =
+        encodeURIComponent(message);
+
+
+    window.location.href =
+        "https://wa.me/213794030957?text=" +
+        encodedMessage;
+
+}
+
+
+function openMessenger() {
+
+    window.open(
+        "https://www.facebook.com/profile.php?id=100069958035941",
+        "_blank"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
