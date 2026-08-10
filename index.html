@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SABSHOOP - Wear Your Style</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary-black: #0a0a0a;
             --secondary-black: #1a1a1a;
-            --accent-purple: #a855f7; /* البنفسجي من الشعار */
+            --accent-purple: #a855f7;
             --accent-purple-dark: #9333ea;
             --text-white: #ffffff;
             --text-gray: #a1a1aa;
             --bg-light: #f4f4f5;
-            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --card-shadow: 0 10px 25px -5px rgba(0,0,0,0.1),
+                           0 8px 10px -6px rgba(0,0,0,0.1);
         }
 
         body {
@@ -32,9 +35,9 @@
             position: relative;
             overflow: hidden;
             border-bottom: 4px solid var(--accent-purple);
+            text-align: center;
         }
 
-        /* إضافة لمسة عصرية للخلفية */
         header::before {
             content: '';
             position: absolute;
@@ -42,7 +45,11 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
+            background: radial-gradient(
+                circle,
+                rgba(168,85,247,0.1) 0%,
+                transparent 70%
+            );
             z-index: 0;
         }
 
@@ -58,8 +65,9 @@
             border: 3px solid var(--accent-purple);
             padding: 5px;
             background: white;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+            box-shadow: 0 0 20px rgba(168,85,247,0.3);
             transition: transform 0.3s ease;
+            object-fit: contain;
         }
 
         .site-logo:hover {
@@ -103,13 +111,15 @@
 
         .product:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1),
+                        0 10px 10px -5px rgba(0,0,0,0.04);
         }
 
         .product-img-container {
             width: 100%;
             height: 300px;
             overflow: hidden;
+            background: #f5f5f5;
         }
 
         .product img {
@@ -120,7 +130,7 @@
         }
 
         .product:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .product-info {
@@ -167,11 +177,12 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            font-family: 'Cairo', sans-serif;
         }
 
         .order-btn:hover {
             background: var(--accent-purple);
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+            box-shadow: 0 4px 15px rgba(168,85,247,0.4);
         }
 
         .custom-frame {
@@ -192,7 +203,6 @@
             margin: 0;
         }
 
-        /* Modal Styling */
         #orderModal {
             display: none;
             position: fixed;
@@ -200,12 +210,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0,0,0,0.8);
             backdrop-filter: blur(5px);
             justify-content: center;
             align-items: center;
             z-index: 1000;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         .modal-content {
@@ -215,7 +226,8 @@
             width: 100%;
             max-width: 450px;
             position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            box-sizing: border-box;
         }
 
         .modal-content h3 {
@@ -226,7 +238,9 @@
             margin-bottom: 25px;
         }
 
-        input, select, textarea {
+        input,
+        select,
+        textarea {
             width: 100%;
             padding: 14px;
             margin: 10px 0;
@@ -238,7 +252,9 @@
             transition: border-color 0.3s ease;
         }
 
-        input:focus, select:focus, textarea:focus {
+        input:focus,
+        select:focus,
+        textarea:focus {
             outline: none;
             border-color: var(--accent-purple);
         }
@@ -255,6 +271,7 @@
             font-weight: 700;
             cursor: pointer;
             transition: background 0.3s ease;
+            font-family: 'Cairo', sans-serif;
         }
 
         .confirm-btn:hover {
@@ -272,6 +289,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
+            font-family: 'Cairo', sans-serif;
         }
 
         .cancel-btn {
@@ -285,6 +303,7 @@
             font-size: 1rem;
             cursor: pointer;
             font-weight: 600;
+            font-family: 'Cairo', sans-serif;
         }
 
         .cancel-btn:hover {
@@ -293,24 +312,44 @@
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .products { padding: 30px 15px; }
-            .custom-frame { margin: 20px 15px 60px; }
+            h1 {
+                font-size: 2rem;
+            }
+
+            .products {
+                padding: 30px 15px;
+                grid-template-columns: 1fr;
+            }
+
+            .custom-frame {
+                margin: 20px 15px 60px;
+            }
+
+            .product-img-container {
+                height: 350px;
+            }
         }
     </style>
 </head>
+
 <body>
 
 <header>
     <div class="header-content">
+
+        <!-- الشعار -->
         <img src="logo.jpg" class="site-logo" alt="SABSHOOP">
+
         <h1>SABSHOOP</h1>
         <p>تصاميمك… مطبوعة بأسلوبك</p>
+
     </div>
 </header>
 
+
 <section class="products">
 
+    <!-- 1 -->
     <div class="product">
         <div class="product-img-container">
             <img src="custom.jpg" alt="تصميم خاص">
@@ -320,11 +359,13 @@
             <h3>تصميم خاص</h3>
             <span class="price">2000 دج</span>
             <button class="order-btn" onclick="openForm('تصميم خاص')">
-                <span>اطلب الآن</span>
+                اطلب الآن
             </button>
         </div>
     </div>
 
+
+    <!-- 2 -->
     <div class="product">
         <div class="product-img-container">
             <img src="image-3.jpg" alt="Trust God's Plan Premium">
@@ -333,10 +374,15 @@
             <span class="product-category">Premium Collection</span>
             <h3>Trust God's Plan Premium</h3>
             <span class="price">2000 دج</span>
-            <button class="order-btn" onclick="openForm('Trust God\'s Plan Premium')">اطلب الآن</button>
+            <button class="order-btn"
+                onclick="openForm('Trust God\'s Plan Premium')">
+                اطلب الآن
+            </button>
         </div>
     </div>
 
+
+    <!-- 3 -->
     <div class="product">
         <div class="product-img-container">
             <img src="image-6.jpg" alt="It's Never Luck">
@@ -345,10 +391,15 @@
             <span class="product-category">Inspiration</span>
             <h3>It's Never Luck</h3>
             <span class="price">2000 دج</span>
-            <button class="order-btn" onclick="openForm('It\'s Never Luck')">اطلب الآن</button>
+            <button class="order-btn"
+                onclick="openForm('It\'s Never Luck')">
+                اطلب الآن
+            </button>
         </div>
     </div>
 
+
+    <!-- 4 -->
     <div class="product">
         <div class="product-img-container">
             <img src="image-5.jpg" alt="Focus Power">
@@ -357,10 +408,15 @@
             <span class="product-category">Motivation</span>
             <h3>Focus Power</h3>
             <span class="price">2000 دج</span>
-            <button class="order-btn" onclick="openForm('Focus Power')">اطلب الآن</button>
+            <button class="order-btn"
+                onclick="openForm('Focus Power')">
+                اطلب الآن
+            </button>
         </div>
     </div>
 
+
+    <!-- 5 -->
     <div class="product">
         <div class="product-img-container">
             <img src="image-4.jpg" alt="Zootopia Design">
@@ -369,10 +425,15 @@
             <span class="product-category">Animation</span>
             <h3>Zootopia Design</h3>
             <span class="price">2000 دج</span>
-            <button class="order-btn" onclick="openForm('Zootopia Design')">اطلب الآن</button>
+            <button class="order-btn"
+                onclick="openForm('Zootopia Design')">
+                اطلب الآن
+            </button>
         </div>
     </div>
 
+
+    <!-- 6 -->
     <div class="product">
         <div class="product-img-container">
             <img src="image-1.jpg" alt="Trust God's Plan">
@@ -381,10 +442,15 @@
             <span class="product-category">Classic</span>
             <h3>Trust God's Plan</h3>
             <span class="price">2000 دج</span>
-            <button class="order-btn" onclick="openForm('Trust God\'s Plan')">اطلب الآن</button>
+            <button class="order-btn"
+                onclick="openForm('Trust God\'s Plan')">
+                اطلب الآن
+            </button>
         </div>
     </div>
 
+
+    <!-- 7 -->
     <div class="product">
         <div class="product-img-container">
             <img src="image-2.jpg" alt="Itachi Design">
@@ -393,10 +459,15 @@
             <span class="product-category">Anime</span>
             <h3>Itachi Design</h3>
             <span class="price">2000 دج</span>
-            <button class="order-btn" onclick="openForm('Itachi Design')">اطلب الآن</button>
+            <button class="order-btn"
+                onclick="openForm('Itachi Design')">
+                اطلب الآن
+            </button>
         </div>
     </div>
 
+
+    <!-- 8 -->
     <div class="product">
         <div class="product-img-container">
             <img src="image-7.png" alt="T-shirt PNL">
@@ -405,10 +476,15 @@
             <span class="product-category">Apparel</span>
             <h3>T-shirt PNL</h3>
             <span class="price">2000 دج</span>
-            <button class="order-btn" onclick="openForm('T-shirt PNL')">اطلب الآن</button>
+            <button class="order-btn"
+                onclick="openForm('T-shirt PNL')">
+                اطلب الآن
+            </button>
         </div>
     </div>
 
+
+    <!-- 9 -->
     <div class="product">
         <div class="product-img-container">
             <img src="image-8.png" alt="T-shirt RED MOON">
@@ -417,79 +493,77 @@
             <span class="product-category">Apparel</span>
             <h3>T-shirt RED MOON</h3>
             <span class="price">2000 دج</span>
-            <button class="order-btn" onclick="openForm('T-shirt RED MOON')">اطلب الآن</button>
+            <button class="order-btn"
+                onclick="openForm('T-shirt RED MOON')">
+                اطلب الآن
+            </button>
         </div>
     </div>
 
-</section>
 
-<div class="custom-frame">
-    <p>هل تفكر في ملصق خاص بك ؟! 🤔<br>
-    <span style="color: var(--accent-purple)">نحن نوفر لك ذلك أيضاً 🎨❇️</span></p>
-</div>
-
-<div id="orderModal">
-    <div class="modal-content">
-        <h3>إتمام الطلب</h3>
-        <input id="name" placeholder="الاسم الكامل" required>
-        <input id="phone" placeholder="رقم الهاتف" required>
-        <textarea id="address" placeholder="العنوان بالتفصيل" rows="3" required></textarea>
-        <select id="size" required>
-            <option value="">اختر المقاس</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-            <option>XXL</option>
-        </select>
-        <button class="confirm-btn" onclick="sendOrder()">تأكيد الطلب عبر واتساب</button>
-        <button class="messenger-btn" onclick="openMessenger()">مراسلة عبر Messenger</button>
-        <button class="cancel-btn" onclick="closeForm()">إلغاء</button>
+    <!-- 10 - الصورة الجديدة 9 -->
+    <div class="product">
+        <div class="product-img-container">
+            <img src="9.png" alt="T-shirt 9">
+        </div>
+        <div class="product-info">
+            <span class="product-category">New Collection</span>
+            <h3>T-shirt 9</h3>
+            <span class="price">2000 دج</span>
+            <button class="order-btn"
+                onclick="openForm('T-shirt 9')">
+                اطلب الآن
+            </button>
+        </div>
     </div>
-</div>
 
-<script>
-    let selectedProduct = "";
 
-    function openForm(name) {
-        selectedProduct = name;
-        document.getElementById("orderModal").style.display = "flex";
-        document.body.style.overflow = "hidden"; // منع التمرير عند فتح المودال
-    }
+    <!-- 11 - الصورة ذات الاسم الطويل -->
+    <div class="product">
+        <div class="product-img-container">
+            <img src="d03f3280-9352-11f1-b762-39f85613c2a6.png"
+                 alt="T-shirt New">
+        </div>
+        <div class="product-info">
+            <span class="product-category">New Collection</span>
+            <h3>T-shirt New</h3>
+            <span class="price">2000 دج</span>
+            <button class="order-btn"
+                onclick="openForm('T-shirt New')">
+                اطلب الآن
+            </button>
+        </div>
+    </div>
 
-    function closeForm() {
-        document.getElementById("orderModal").style.display = "none";
-        document.body.style.overflow = "auto";
-    }
 
-    // إغلاق المودال عند النقر خارجه
-    window.onclick = function(event) {
-        let modal = document.getElementById("orderModal");
-        if (event.target == modal) {
-            closeForm();
-        }
-    }
+    <!-- 12 - الصورة 14 -->
+    <div class="product">
+        <div class="product-img-container">
+            <img src="14.png" alt="T-shirt 14">
+        </div>
+        <div class="product-info">
+            <span class="product-category">New Collection</span>
+            <h3>T-shirt 14</h3>
+            <span class="price">2000 دج</span>
+            <button class="order-btn"
+                onclick="openForm('T-shirt 14')">
+                اطلب الآن
+            </button>
+        </div>
+    </div>
 
-    function sendOrder() {
-        let name = document.getElementById("name").value.trim();
-        let phone = document.getElementById("phone").value.trim();
-        let address = document.getElementById("address").value.trim();
-        let size = document.getElementById("size").value;
 
-        if (!name || !phone || !address || !size) {
-            alert("يرجى ملء جميع الحقول");
-            return;
-        }
-
-        let message = `طلب جديد من SABSHOOP\n\nالمنتج: ${selectedProduct}\nالاسم: ${name}\nالهاتف: ${phone}\nالعنوان: ${address}\nالمقاس: ${size}`;
-        let encodedMessage = encodeURIComponent(message);
-        window.location.href = `whatsapp://send?phone=213794030957&text=${encodedMessage}`;
-    }
-
-    function openMessenger() {
-        window.open("https://www.facebook.com/profile.php?id=100069958035941", "_blank");
-    }
-</script>
-
-</body>
-</html>
+    <!-- 13 - الصورة 12 -->
+    <div class="product">
+        <div class="product-img-container">
+            <img src="12.png" alt="T-shirt 12">
+        </div>
+        <div class="product-info">
+            <span class="product-category">New Collection</span>
+            <h3>T-shirt 12</h3>
+            <span class="price">2000 دج</span>
+            <button class="order-btn"
+                onclick="openForm('T-shirt 12')">
+                اطلب الآن
+            </button>
+        </div>
